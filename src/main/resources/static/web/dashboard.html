@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="en" class="semi-dark">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- loader-->
+  <link href="assets/css/pace.min.css" rel="stylesheet" />
+
+
+  <!--plugins-->
+  <link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+  <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
+  <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+  <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+
+  <!-- CSS Files -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-extended.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+
+  <title>vossen bank</title>
+</head>
+
+<body>
+
+
+  <!--start wrapper-->
+  <div class="wrapper">
+
+    <!--start sidebar -->
+    <aside class="sidebar-wrapper" data-simplebar="true">
+      <div class="sidebar-header">
+        <div>
+          <h4 class="logo-text">SKY</h4>
+        </div>
+        <div>
+          <h4 class="logo-text">Bank</h4>
+        </div>
+        <div class="toggle-icon ms-auto">
+          <ion-icon name="menu-sharp"></ion-icon>
+        </div>
+      </div>
+      <!--navigation-->
+      <ul class="metismenu" id="menu">
+        <li>
+          <a href="./dashboard.html" target="_blank">
+            <div class="parent-icon">
+              <i class="fa-solid fa-gauge"></i>
+            </div>
+            <div class="menu-title">Dashboard</div>
+          </a>
+        </li>
+
+        <li>
+          <a href="./transfers.html" target="_blank">
+            <div class="parent-icon">
+              <i class="fa-solid fa-money-bill-transfer"></i>
+            </div>
+            <div class="menu-title">Transfers</div>
+          </a>
+        </li>
+
+        <li>
+          <a href="./loans.html" target="_blank">
+            <div class="parent-icon">
+              <i class="fa-solid fa-comment-dollar"></i>
+            </div>
+            <div class="menu-title">Loans</div>
+          </a>
+        </li>
+
+
+        
+        <li>
+          <a href="./cards.html" target="_blank">
+            <div class="parent-icon">
+              <i class="fa-brands fa-cc-visa"></i>
+            </div>
+            <div class="menu-title">Cards</div>
+          </a>
+        </li>
+
+        <li>
+          <a href="./user.html" target="_blank">
+            <div class="parent-icon">
+              <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="menu-title">User</div>
+          </a>
+        </li>
+      </ul>
+      <!--end navigation-->
+    </aside>
+    <!--end sidebar -->
+    <div id="app" class="MAIN">
+
+      <!--start top header-->
+
+      <header class="top-header">
+        <nav class="navbar navbar-expand gap-3">
+          <div class="mobile-menu-button">
+            <i class="bi bi-list"></i>
+          </div>
+
+          <div class="top-navbar-right ms-auto">
+
+            <ul class="navbar-nav align-items-center">
+              <li class="nav-item mobile-search-button">
+                <a class="nav-link" href="javascript:;">
+                  <div class="">
+                    <i class="bi bi-search"></i>
+                  </div>
+                </a>
+              </li>
+             
+              
+              
+              <li class="nav-item dropdown dropdown-user-setting">
+                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;"
+                  data-bs-toggle="dropdown">
+                  <div class="user-setting">
+                    <img src="https://via.placeholder.com/110X110/212529/fff" class="user-img" alt="">
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" href="javascript:;">
+                      <div class="d-flex flex-row align-items-center gap-2">
+                        <img src="https://via.placeholder.com/110X110/212529/fff" alt="" class="rounded-circle"
+                          width="54" height="54">
+                        <div class="">
+                          <h6 class="mb-0 dropdown-user-name">{{firstName}} {{lastName}}</h6>
+                          <small class="mb-0 dropdown-user-designation text-secondary">Client</small>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="javascript:;">
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <ion-icon name="person-outline"></ion-icon>
+                        </div>
+                        <div class="ms-3"><span>Profile</span></div>
+                      </div>
+                    </a>
+                  </li>
+                  
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="javascript:;">
+                      <div class="d-flex align-items-center">
+                        <div class="">
+                          <ion-icon name="log-out-outline"></ion-icon>
+                        </div>
+                        <div @click="logOut" class="ms-3"><span>Logout</span></div>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+            </ul>
+
+          </div>
+        </nav>
+      </header>
+      <!--end top header-->
+
+      <!-- start page content wrapper-->
+      <div  class="page-content-wrapper">
+        <!-- start page content-->
+        <div class="page-content">
+
+
+          <!--start breadcrumb-->
+          <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Dashboard</div>
+            <div class="ps-3">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0 p-0 align-items-center">
+                  <li class="breadcrumb-item"><a href="javascript:;">
+                      <ion-icon name="home-outline"></ion-icon>
+                    </a>
+                  </li>
+                  <li class="breadcrumb-item active" aria-current="page">Accounts</li>
+                </ol>
+              </nav>
+            </div>
+
+          </div>
+          <!--end breadcrumb-->
+          <!--LAS CUENTAS -->
+          <div class="row">
+            <div class="d-flex flex-row ">
+
+              <div v-for="account in accountsActive" class="col-12 col-lg-12 col-xl-4 d-flex">
+                <div class="card radius-10 bg-transparent shadow-none w-100">
+                  <div class="card-body p-2">
+                    <div class="card radius-10">
+
+
+
+
+
+                      <!-- account -->
+                      <div class="card-body">
+                        <div class="d-flex align-items-center"></div>
+                        <p class="mb-0 mt-2">Balance 
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-file"></i></button>
+                          
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Descargar factura</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <form @submit.prevent="downloadPDF(account)" action="">
+                                  <label for="since" class="d-block pe-3">Since</label>
+                                    <input type="datetime-local" name="since" id="" v-model="sinceDate" required></input>
+
+                                    <label for="until" class="d-block pe-3">Until</label>
+                                    <input type="datetime-local" name="until" id="" v-model="untilDate" required></input>
+                                    <button type="submit" class="btn btn-primary">Descargar</button>
+                                  </form>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  
+                                </div>
+                              </div>
+                            </div>
+                          </div></p>
+                        <h4 class="my-3">${{account.balance}}</h4>
+                        <p class="mb-0 mt-2">{{account.number}}<span class="float-end"></span></p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- buttom -->
+              <div v-if="dataAccount.length >=1 && dataAccount.length <3" class="col-12 col-lg-12 col-xl-4 d-flex">
+                <div class="card radius-10 bg-transparent shadow-none w-100">
+                  <div class="card-body p-2 d-flex align-items-center">
+                    <div class="card radius-10 ">
+                      <div class="card-body">
+                        <div class="d-flex align-items-center">
+
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                          <button type="button" @click="createAccount" class="btn btn-lg btn-outline-warning px-5 my-3"><i class="fa-solid fa-plus"></i></button>
+
+                      
+                            <!-- Modal -->
+                            
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+
+
+              
+              <!-- buttom -->
+            </div>
+            <!-- <div class="col-12 col-lg-12 col-xl-4 d-flex">
+              <div class="col">
+                <div class="card radius-10 bg-white">
+                  <div class="card-body text-dark">
+                     <h5>Realizar ransferencia</h5>
+                     <button @click="goToTransferspage" type="button" class="btn btn-lg btn-outline-success px-5 my-3"><i
+                      class="lni lni-database"></i>Hacer una transferencia</button>
+                  </div>
+                </div>
+              </div>
+
+           </div> -->
+           
+           <!-- <div class="col-12 col-lg-12 col-xl-4 d-flex">
+            <div class="col">
+              <div class="card radius-10 bg-white">
+                
+                  <div class="credit-card visa selectable">
+                    <div class="credit-card-last4">
+                        4242
+                    </div>
+                    <div class="credit-card-expiry">
+                        08/25
+                    </div>
+                </div>
+              </div>
+            </div>
+
+         </div> -->
+           <!--end row-->
+            
+
+            <div class="card radius-10 w-100">
+              <div class="card-body">
+                <div class="d-flex align-items-center">
+                  <h6 class="mb-0">Transactions</h6>
+                  <div class="fs-5 ms-auto dropdown">
+                    <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
+                        class="bi bi-three-dots"></i></div>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li><a class="dropdown-item" href="#">Another action</a></li>
+                      <li>
+                        <hr class="dropdown-divider">
+                      </li>
+                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="table-responsive mt-2">
+                  <table class="table align-middle mb-0">
+                    <thead class="table-light">
+                      <tr>
+                        <th>Description</th>
+                        <th>Card</th>
+                        <th>amount</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="transaciones in transaccionesXD">
+                        <td>
+                          <div class="d-flex align-items-center gap-3">
+                            <div class="product-box border">
+                              <i class="fa-solid fa-money-from-bracket"></i>
+                            </div>
+                            <div class="product-info">
+                              <h6 class="product-name mb-1">{{transaciones.description}}</h6>
+                            </div>
+                          </div>
+                        </td>
+                        <td>{{transaciones.type}}</td>
+                        <td class="transfer-number" v-if="transaciones.type === 'DEBITO'">-${{transaciones.amount}}</td>
+                        <td class="transfer-number" v-else="transaciones.type === 'CREDITO'">-${{transaciones.amount}}
+                        </td>
+                        <td>{{dateTransform(transaciones.date)}}</td>
+                        <td><span class="badge alert-dark">Completed</span></td>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-12 col-xl-12 d-flex">
+              <div class="card radius-10 w-100">
+                <div class="card-body">
+                  <div class="d-flex align-items-center mb-3">
+                    <h6 class="mb-0">User Loans</h6>
+                    <div class="dropdown options ms-auto">
+                      <div class="dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
+                        <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
+                      </div>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Request a new loan</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="chart-container3">
+                    <div class="card radius-10 w-100 d-flex flex-row justify-content-center p-2"
+                      v-if="loans1.length == 0">
+                      <div class="badge bg-light-warning text-warning align-self-center fs-6">You do not have requested
+                        loans
+                      </div>
+                    </div>
+                    <div class="chart-container3">
+                      <div class="card radius-10 w-100 d-flex flex-row justify-content-between p-2" v-else
+                        v-for="loan in loans1">
+                        <div>
+                          <div>{{loan.name}}</div>
+                          <div>in {{loan.payments}} Cuotas</div>
+                        </div>
+                        <div class="badge bg-light-success text-success align-self-center">+${{loan.amount.toFixed(2)}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+            </div>
+            <!--end row-->
+
+
+            <!-- <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-5">
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="mx-auto widget-icon bg-light-dark text-dark">
+              <i class="bi bi-basket2-fill"></i>
+            </div>
+            <div class="text-center mt-3">
+              <h3 class="text-dark mb-1">4.6K</h3>
+              <p class="text-muted mb-4">Total Orders</p>
+              <p class="text-dark mb-0 font-13"><i class="bi bi-arrow-up"></i><span>45.5%</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="mx-auto widget-icon bg-light-dark text-dark">
+              <i class="bi bi-wallet-fill"></i>
+            </div>
+            <div class="text-center mt-3">
+              <h3 class="text-dark mb-1">$25M</h3>
+              <p class="text-muted mb-4">Total Income</p>
+              <p class="text-dark mb-0 font-13"><i class="bi bi-arrow-up"></i><span>24.5%</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="mx-auto widget-icon bg-light-dark text-dark">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <div class="text-center mt-3">
+              <h3 class="text-dark mb-1">5.6K</h3>
+              <p class="text-muted mb-4">Total Visitors</p>
+              <p class="text-dark mb-0 font-13"><i class="bi bi-arrow-down"></i><span>15.8%</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="mx-auto widget-icon bg-light-dark text-dark">
+              <i class="bi bi-chat-text-fill"></i>
+            </div>
+            <div class="text-center mt-3">
+              <h3 class="text-dark mb-1">752</h3>
+              <p class="text-muted mb-4">Total Comments</p>
+              <p class="text-dark mb-0 font-13"><i class="bi bi-arrow-up"></i><span>35.2%</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card radius-10">
+          <div class="card-body">
+            <div class="mx-auto widget-icon bg-light-dark text-dark">
+              <i class="bi bi-bar-chart-fill"></i>
+            </div>
+            <div class="text-center mt-3">
+              <h3 class="text-dark mb-1">42.8%</h3>
+              <p class="text-muted mb-4">Bounce Rate</p>
+              <p class="text-dark mb-0 font-13"><i class="bi bi-arrow-down"></i><span>28.5%</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+            <!--end row-->
+
+
+
+            <!-- <div class="row">
+      <div class="col-12 col-lg-8 col-xl-8 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Statistics</h6>
+              <div class="ms-auto">
+                <div class="d-flex align-items-center font-13 gap-2">
+                  <span class="border px-1 rounded cursor-pointer"><i
+                      class="bx bxs-circle me-1 text-dark"></i>Downloads</span>
+                  <span class="border px-1 rounded cursor-pointer"><i
+                      class="bx bxs-circle me-1 text-dark opacity-25"></i>Earnings</span>
+                </div>
+              </div>
+            </div>
+            <div class="chart-container1">
+              <canvas id="chart1"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-xl-4 d-flex">
+        <div class="card radius-10 overflow-hidden w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Top Categories</h6>
+              <div class="dropdown options ms-auto">
+                <div class="dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
+                  <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
+                </div>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                  <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                  <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="chart-container6">
+              <div class="piechart-legend">
+                <h2 class="mb-1">$85K</h2>
+                <h6 class="mb-0">Total Sales</h6>
+              </div>
+              <canvas id="chart2"></canvas>
+            </div>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center border-top">
+              Clothing
+              <span class="badge bg-dark rounded-pill">55</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Electronics
+              <span class="badge bg-dark opacity-75 rounded-pill">20</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Furniture
+              <span class="badge bg-dark opacity-25 rounded-pill">10</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div> -->
+            <!--end row-->
+
+
+            <!-- <div class="row">
+      <div class="col-12 col-lg-12 col-xl-6 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <h6 class="mb-0">Customers</h6>
+              <div class="dropdown options ms-auto">
+                <div class="dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
+                  <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
+                </div>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="javascript:;">Action</a></li>
+                  <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
+                  <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="row row-cols-1 row-cols-md-2 g-3 align-items-center">
+              <div class="col-lg-7 col-xl-7 col-xxl-7">
+                <div class="chart-container5">
+                  <div class="piechart-legend">
+                    <h2 class="mb-1">48K</h2>
+                    <h6 class="mb-0">Customers</h6>
+                  </div>
+                  <canvas id="chart3"></canvas>
+                </div>
+              </div>
+              <div class="col-lg-5 col-xl-5 col-xxl-5">
+                <div class="">
+                  <div class="d-flex align-items-start gap-2 mb-3">
+                    <div>
+                      <ion-icon name="ellipse-sharp" class="text-dark"></ion-icon>
+                    </div>
+                    <div>
+                      <p class="mb-1">Current Customers</p>
+                      <p class="mb-0 h5">66%</p>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-start gap-2 mb-3">
+                    <div>
+                      <ion-icon name="ellipse-sharp" class="text-dark opacity-50"></ion-icon>
+                    </div>
+                    <div>
+                      <p class="mb-1">New Customers</p>
+                      <p class="mb-0 h5">48%</p>
+                    </div>
+                  </div>
+                  <div class="d-flex align-items-start gap-2">
+                    <div>
+                      <ion-icon name="ellipse-sharp" class="text-dark opacity-25"></ion-icon>
+                    </div>
+                    <div>
+                      <p class="mb-1">Retargeted Customers</p>
+                      <p class="mb-0 h5">25%</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+            <!--end row-->
+
+            <!-- <div class="row">
+      <div class="col-12 col-lg-12 col-xl-4 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <h6 class="mb-0">Visitors</h6>
+              <div class="fs-5 ms-auto dropdown">
+                <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
+                    class="bi bi-three-dots"></i></div>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="chart5" class=""></div>
+            <div class="d-flex align-items-center gap-5 justify-content-center mt-3 p-2 radius-10 border">
+              <div class="text-center">
+                <h3 class="mb-2 text-dark">8,546</h3>
+                <p class="mb-0">New Visitors</p>
+              </div>
+              <div class="border-end sepration"></div>
+              <div class="text-center">
+                <h3 class="mb-2 text-dark opacity-50">3,723</h3>
+                <p class="mb-0">Old Visitors</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-xl-4 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <h6 class="mb-0">Traffic Source</h6>
+              <div class="fs-5 ms-auto dropdown">
+                <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
+                    class="bi bi-three-dots"></i></div>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="chart4" class=""></div>
+            <div class="traffic-widget">
+              <div class="progress-wrapper mb-3">
+                <p class="mb-1">Social <span class="float-end">8,475</span></p>
+                <div class="progress rounded-0" style="height: 8px;">
+                  <div class="progress-bar bg-dark" role="progressbar" style="width: 80%;"></div>
+                </div>
+              </div>
+              <div class="progress-wrapper mb-3">
+                <p class="mb-1">Direct <span class="float-end">7,989</span></p>
+                <div class="progress rounded-0" style="height: 8px;">
+                  <div class="progress-bar bg-dark" role="progressbar" style="width: 65%;"></div>
+                </div>
+              </div>
+              <div class="progress-wrapper mb-0">
+                <p class="mb-1">Search <span class="float-end">6,359</span></p>
+                <div class="progress rounded-0" style="height: 8px;">
+                  <div class="progress-bar bg-dark" role="progressbar" style="width: 50%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-4 col-xl-4 d-flex">
+        <div class="card radius-10 w-100">
+          <div class="card-body">
+            <div class="d-flex align-items-center">
+              <h6 class="mb-0">Sales By Country</h6>
+              <div class="fs-5 ms-auto dropdown">
+                <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
+                    class="bi bi-three-dots"></i></div>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="geographic-map" class="mt-2"></div>
+            <div class="traffic-widget">
+              <div class="progress-wrapper mb-3">
+                <p class="mb-1">United States <span class="float-end">$2.5K</span></p>
+                <div class="progress rounded-0" style="height: 6px;">
+                  <div class="progress-bar bg-dark" role="progressbar" style="width: 75%;"></div>
+                </div>
+              </div>
+              <div class="progress-wrapper mb-3">
+                <p class="mb-1">Russia <span class="float-end">$4.5K</span></p>
+                <div class="progress rounded-0" style="height: 6px;">
+                  <div class="progress-bar bg-dark" role="progressbar" style="width: 55%;"></div>
+                </div>
+              </div>
+              <div class="progress-wrapper mb-0">
+                <p class="mb-1">Australia <span class="float-end">$8.5K</span></p>
+                <div class="progress rounded-0" style="height: 6px;">
+                  <div class="progress-bar bg-dark" role="progressbar" style="width: 80%;"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+            <!--end row-->
+
+
+
+
+
+
+
+          </div>
+          <!-- end page content-->
+        </div>
+        <!--end page content wrapper-->
+      </div>
+
+
+
+
+
+
+
+
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <div class="footer-text">
+          Valentino Arena Copyright © 2021. All right reserved.
+        </div>
+      </footer>
+      <!-- FOOTER -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+    <!--end wrapper-->
+
+
+    <!-- JS Files-->
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <script src="sweetalert2.all.min.js"></script>
+    <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+    <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://kit.fontawesome.com/22ee0f4458.js" crossorigin="anonymous"></script>
+
+    <!--plugins-->
+    <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <script src="assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+    <script src="assets/plugins/chartjs/chart.min.js"></script>
+    <script src="assets/js/index.js"></script>
+    <!-- Main JS-->
+
+    
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api.js"></script>
+
+
+</body>
+
+</html>
