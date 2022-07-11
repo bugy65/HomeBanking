@@ -22,7 +22,7 @@ Vue.createApp({
     },
 
     created() {
-        axios.get(`http://localhost:8080/api/clients/current`).then((data) => {
+        axios.get(`https://skyhomebanking.herokuapp.com/api/clients/current`).then((data) => {
             this.datos = data;
             this.clientes = this.datos.data;
             this.dataAccount = this.clientes.accounts;
@@ -42,7 +42,7 @@ Vue.createApp({
     methods: {
         logOut() {
 
-            axios.post('/api/logout').then(response => location.href = "http://localhost:8080/web/index.html")
+            axios.post('/api/logout').then(response => location.href = "https://skyhomebanking.herokuapp.com/web/index.html")
             console.log("soy puto")
         },
 
