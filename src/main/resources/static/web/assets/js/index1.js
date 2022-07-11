@@ -26,7 +26,7 @@ Vue.createApp({
         login() {
 
             axios.post('/api/login', `email=${this.email}&password=${this.password}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
-            ).then(response => location.href= "https://skyhomebanking.herokuapp.com/web/dashboard.html").then(response => console.log('signed in!!!'))
+            ).then(response => location.href= "/web/dashboard.html").then(response => console.log('signed in!!!'))
 
 
             .catch(function (error) {
@@ -52,7 +52,7 @@ Vue.createApp({
 
             axios.post('/api/clients',`firstName=${this.firstName}&lastName=${this.lastName}&email=${this.emailRegister}&password=${this.passwordRegister}`,{headers:{'content-type':'application/x-www-form-urlencoded'}}
             ).then(response => axios.post('/api/login', `email=${this.emailRegister}&password=${this.passwordRegister}`, { headers: { 'content-type': 'application/x-www-form-urlencoded' } }
-            ).then(response => location.href= "https://skyhomebanking.herokuapp.com/web/dashboard.html"))
+            ).then(response => location.href= "/web/dashboard.html"))
 
 
             .catch(function (error) {

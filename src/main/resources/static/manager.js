@@ -23,13 +23,13 @@ const app = Vue.createApp({
         }
     },
     created() {
-        axios.get(`https://skyhomebanking.herokuapp.com/api/clients`)
+        axios.get(`/api/clients`)
             .then(data => {
                 this.datos = data.data
                 console.log(data)
                 console.log(this.datos)
             }),
-            axios.get(`https://skyhomebanking.herokuapp.com/rest/accounts`)
+            axios.get(`/rest/accounts`)
                 .then(datas => {
                     this.datosAccount = datas.data._embedded.accounts
                     console.log(datas)
@@ -44,19 +44,19 @@ const app = Vue.createApp({
                     lastName: this.lastName,
                     email: this.email,
                 }
-                axios.post('https://skyhomebanking.herokuapp.com/rest/clients/', this.client)
+                axios.post('/rest/clients/', this.client)
                 location.reload()
             }
         },
         takeClient(cliente) {
             this.clienteSeleccionado = cliente;
-            this.urlClienteSeleccionado = 'https://skyhomebanking.herokuapp.com/rest/clients/' + cliente.id;
+            this.urlClienteSeleccionado = '/rest/clients/' + cliente.id;
             console.log(this.clienteSeleccionado)
             console.log(this.urlClienteSeleccionado)
         },
         deleteClient(url) {
             this.clienteSeleccionado.accounts.forEach(account =>{
-                axios.delete("https://skyhomebanking.herokuapp.com/rest/accounts/" + account.id)
+                axios.delete("/rest/accounts/" + account.id)
                 
             })
             function eliminando(){
